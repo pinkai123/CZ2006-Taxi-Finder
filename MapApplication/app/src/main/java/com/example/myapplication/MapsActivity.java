@@ -179,6 +179,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+                mMap.clear();
+                lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                //myCurrentlocation = new LatLng(Double.valueOf(1.3521),Double.valueOf(103.8198));
+                myCurrentlocation = new LatLng(lastKnownLocation.getLatitude(),lastKnownLocation.getLongitude());
+                //mMap.clear();
+                mMap.addMarker(new MarkerOptions().position(myCurrentlocation).title("My location").snippet("and snippet")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myCurrentlocation,17));
                 Log.i("Location",location.toString());
                 //Toast.makeText(MapsActivity.this,location.toString(),Toast.LENGTH_SHORT).show();
                 DownloadTask task =new DownloadTask();
