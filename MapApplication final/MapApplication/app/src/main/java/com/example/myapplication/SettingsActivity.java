@@ -7,11 +7,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
 //include functions: on/off taxi stand locations, choose radius, change password
 public class SettingsActivity extends AppCompatActivity {
 
-    Button btnChangepw;
+
     ImageView btnBack;
+
+//optional
+    Button btnChangepw;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
