@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -11,22 +12,34 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.google.android.gms.common.api.Status;
 
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,7 +56,17 @@ import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Consumer;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+//changed fragmentactivity to appcombatactivity
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener{
+
+    //search bar
+
+
+
+
+    //for navigation menu
+    private DrawerLayout myDrawer;
+    private ActionBarDrawerToggle myToggle;
 
     private GoogleMap mMap;
     LocationManager locationManager;
@@ -51,6 +74,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Location lastKnownLocation;
     LatLng myCurrentlocation;
     private EditText editLocation = null;
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -63,6 +88,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
     }
+
+
 
 
     public class DownloadTask extends AsyncTask<String,Void, String>{
@@ -143,10 +170,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    //logout function
+    private void logout(){
+        FirebaseAuth.getInstance().signOut();
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -159,9 +198,71 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } catch (Exception e) {
             e.printStackTrace(); }
 
+        //for navigation menu
+
+        myDrawer = (DrawerLayout) findViewById(R.id.myDrawer);
+        myToggle = new ActionBarDrawerToggle(this, myDrawer, R.string.open, R.string.close);
+        myDrawer.addDrawerListener(myToggle);
+        myToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
 
     }
 
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(myToggle.onOptionsItemSelected(item)){
+            return true;}
+
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    //jumping to next activity of menu items
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            //clicking "Settings" from menu bar, insert "settings" code to SettingsActivity
+            case R.id.menuSettings:
+                Intent settings = new Intent(MapsActivity.this, SettingsActivity.class);
+                startActivity(settings);
+                break;
+
+            //clicking "Taxi Fare Calculator" from menu bar, insert "Taxi Fare Calculator" code to TaxiFareActivity
+            case R.id.menuTaxiFare:
+                Intent taxifare = new Intent(MapsActivity.this, TaxiFareActivity.class);
+                startActivity(taxifare);
+                break;
+
+            //clicking "Favourites" from menu bar, insert "favourites" code to FavouriteActivity
+            case R.id.menuFavourites:
+                Intent favourites = new Intent(MapsActivity.this, FavouritesActivity.class);
+                startActivity(favourites);
+                break;
+
+            //clicking "Feedback" from menu bar, insert "feedback" code to FeedbackActivity
+            case R.id.menuFeedback:
+                Intent feedback = new Intent(MapsActivity.this, FeedbackActivity.class);
+                startActivity(feedback);
+                break;
+
+            //click "Logout" at menu bar to logout
+            case R.id.menuLogout:
+                logout();
+
+        }
+
+        return false;
+    }
 
     /**
      * Manipulates the map once available.

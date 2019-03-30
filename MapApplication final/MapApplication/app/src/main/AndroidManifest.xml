@@ -19,7 +19,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegistrationActivity"></activity>
+        <activity android:name=".ChangePassword"></activity>
+        <activity android:name=".EditTaskDesk" />
+        <activity android:name=".NewTaskAct" />
+        <activity android:name=".FeedbackActivity" />
+        <activity android:name=".FavouritesActivity" />
+        <activity android:name=".TaxiFareActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".RegistrationActivity" />
         <activity android:name=".PasswordActivity" />
         <activity android:name=".MapsActivity" />
         <!--
