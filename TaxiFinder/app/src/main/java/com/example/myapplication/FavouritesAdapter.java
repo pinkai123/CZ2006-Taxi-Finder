@@ -48,6 +48,7 @@ public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.My
             @Override
             public void onClick(View v) {
                 Intent b = new Intent(context, EditTaskDesk.class);
+
                 b.putExtra("addresstitle", getAddresstitle);
                 b.putExtra("address", getAddress);
                 b.putExtra("keyfavourites", getKeyfavourites);

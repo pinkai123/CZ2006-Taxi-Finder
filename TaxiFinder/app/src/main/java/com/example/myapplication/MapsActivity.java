@@ -373,6 +373,54 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
+    public void onClick(View v) {
+        EditText addressField = (EditText) findViewById(R.id.location_search);
+        String address = addressField.getText().toString();
+
+        List<Address>  addressList = null;
+        MarkerOptions userMarketOptions = new MarkerOptions();
+
+        if (!TextUtils.isEmpty(address)){
+            Geocoder geocoder = new Geocoder(this);
+
+            try {
+                addressList = geocoder.getFromLocationName(address, 6);
+
+                if(addressList != null){
+                    //marker for loop
+                    for(int i=0; i<addressList.size(); i++){
+                        mMap.clear();
+
+                        Address userAddress = addressList.get(i);
+                        LatLng latlng = new LatLng(userAddress.getLatitude(), userAddress.getLongitude());
+                        myCurrentlocation = latlng;
+
+                        userMarketOptions.position(latlng);
+                        userMarketOptions.title(address);
+                        userMarketOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+
+                        mMap.addMarker(userMarketOptions);
+
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+                        mMap.animateCamera(CameraUpdateFactory.zoomTo(14));
+                        Download();
+                    }
+                }
+                else {
+                    Toast.makeText(this, "Location not found", Toast.LENGTH_SHORT).show();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        else {
+            Toast.makeText(this, "Please write any location address", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 
     @Override

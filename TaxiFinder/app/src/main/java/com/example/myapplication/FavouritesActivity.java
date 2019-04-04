@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -62,13 +64,15 @@ public class FavouritesActivity extends AppCompatActivity {
         list = new ArrayList<FavouritesList>();
 
         //get data from Firebase
-        reference = FirebaseDatabase.getInstance().getReference().child("MapApplication");
+        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        reference = FirebaseDatabase.getInstance().getReference().child("MapApplication").child("users").child(userid).child("Favourites");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //set code to retrieve data and replace layout
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
                 {
+
                     FavouritesList p =dataSnapshot1.getValue(FavouritesList.class);
                     list.add(p);
                 }

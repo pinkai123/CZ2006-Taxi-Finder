@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +45,8 @@ public class NewTaskAct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //insert data to database
-                reference = FirebaseDatabase.getInstance().getReference().child("MapApplication").child("Addr" + favouritesNum);
+                String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                reference = FirebaseDatabase.getInstance().getReference().child("MapApplication").child("users").child(userid).child("Favourites").child("Addr" + favouritesNum);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
