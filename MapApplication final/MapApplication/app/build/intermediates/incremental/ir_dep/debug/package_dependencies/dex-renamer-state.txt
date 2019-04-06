@@ -1,0 +1,7 @@
+#Sat Mar 30 17:10:04 SGT 2019
+base.0=C\:\\Users\\Harold\\Desktop\\OnePlusFour-master\\OnePlusFour-master\\MapApplication final\\MapApplication\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=C\:\\Users\\Harold\\Desktop\\OnePlusFour-master\\OnePlusFour-master\\MapApplication final\\MapApplication\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
