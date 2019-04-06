@@ -22,7 +22,7 @@
         <activity android:name=".ChangePassword"></activity>
         <activity android:name=".EditTaskDesk" />
         <activity android:name=".NewTaskAct" />
-        <activity android:name=".FeedbackActivity" />
+        <activity android:name=".FeedbackActivity"/>
         <activity android:name=".FavouritesActivity" />
         <activity android:name=".TaxiFareActivity" />
         <activity android:name=".SettingsActivity" />

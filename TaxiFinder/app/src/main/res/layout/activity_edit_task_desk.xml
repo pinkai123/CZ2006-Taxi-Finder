@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/imagebackground2"
+    android:orientation="vertical"
     tools:context=".FavouritesActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="85dp"
+        android:background="@drawable/bgmaincolor"
         android:orientation="vertical">
 
 
@@ -19,11 +21,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="15dp"
             android:text="Edit Favourites"
+            android:textColor="#000"
             android:textAlignment="center"
             android:textSize="26sp" />
-
 
 
         <View
@@ -34,73 +36,73 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginTop="40dp"
+        android:layout_marginRight="16dp"
         android:orientation="vertical"
         android:paddingTop="22dp"
-        android:paddingBottom="22dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:paddingBottom="22dp">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/addtitle"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:text="Add Title"
-                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Add Title"
+                android:textColor="@color/quantum_white_100"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/titlefavourites"
-                android:inputType="text"
-                android:background="@drawable/bginputtask"
-                android:paddingLeft="12dp"
-                android:textColorHint="#B5B5B5"
-                android:maxLength="25"
-                android:textColor="#000000"
-                android:hint="Enter Title"
                 android:layout_width="match_parent"
-                android:layout_height="45dp" />
+                android:layout_height="45dp"
+                android:background="@drawable/bginputtask"
+                android:hint="Enter Title"
+                android:inputType="text"
+                android:maxLength="25"
+                android:paddingLeft="12dp"
+                android:textColor="#000"
+                android:textColorHint="#B5B5B5" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/addaddress"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:text="Address"
-                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Address"
+                android:textColor="@color/quantum_white_100"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/addressfavourites"
-                android:inputType="text"
-                android:background="@drawable/bginputtask"
-                android:paddingLeft="12dp"
-                android:textColorHint="#B5B5B5"
-                android:maxLength="25"
-                android:textColor="#000000"
-                android:hint="Enter address"
                 android:layout_width="match_parent"
-                android:layout_height="45dp" />
+                android:layout_height="45dp"
+                android:background="@drawable/bginputtask"
+                android:hint="Enter address"
+                android:inputType="text"
+                android:maxLength="25"
+                android:paddingLeft="12dp"
+                android:textColor="#000000"
+                android:textColorHint="#B5B5B5" />
 
         </LinearLayout>
 

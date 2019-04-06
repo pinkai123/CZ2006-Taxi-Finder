@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,6 +43,7 @@ public class EditTaskDesk extends AppCompatActivity {
         titlefavourites.setText(getIntent().getStringExtra("addresstitle"));
         addressfavourites.setText(getIntent().getStringExtra("address"));
         final String keykeyfavourites = getIntent().getStringExtra("keyfavourites");
+
 
         reference = FirebaseDatabase.getInstance().getReference().child("MapApplication").child("Addr" + keykeyfavourites);
 

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/imagebackground2"
     tools:context=".TaxiFareActivity">
 
 
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:background="@drawable/bgmaincolor"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +24,6 @@
             android:layout_height="40dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="6dp"
-            android:background="@drawable/btnbackbg"
             app:srcCompat="@drawable/ic_back" />
 
         <LinearLayout
@@ -58,6 +58,8 @@
         android:ems="10"
         android:hint="Choose Starting Point"
         android:inputType="textPersonName"
+        android:textColor="@color/quantum_white_100"
+        android:textColorHint="@color/quantum_white_100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
@@ -75,6 +77,8 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Choose Destination"
+        android:textColor="@color/quantum_white_100"
+        android:textColorHint="@color/quantum_white_100"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,7 +112,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textColor="@color/quantum_white_100"
         android:textSize="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -124,8 +128,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="88dp"
         android:layout_marginEnd="8dp"
-        android:text="FROM"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:text="FROM:"
+        android:textColor="@color/quantum_white_100"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.23"
@@ -140,15 +144,15 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="TO"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:text="TO:"
+        android:textColor="@color/quantum_white_100"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/endid"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startid"
-        app:layout_constraintVertical_bias="0.703" />
+        app:layout_constraintVertical_bias="0.952" />
 
 
 </android.support.constraint.ConstraintLayout>

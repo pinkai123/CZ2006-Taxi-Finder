@@ -27,6 +27,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
+
 import com.google.android.gms.common.api.Status;
 
 import com.google.android.gms.location.places.Place;
@@ -83,6 +85,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     //for navigation menu
     private DrawerLayout myDrawer;
     private ActionBarDrawerToggle myToggle;
+    
 
     private GoogleMap mMap;
     LocationManager locationManager;
@@ -329,6 +332,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        Toolbar t = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(t);
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -372,6 +379,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     }
+
+
 
     public void onClick(View v) {
         EditText addressField = (EditText) findViewById(R.id.location_search);

@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/imagebackground2"
     tools:context=".FeedbackActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:background="@drawable/bgmaincolor"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,9 +20,8 @@
             android:id="@+id/btnBack"
             android:layout_width="61dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/btnbackbg"
             app:srcCompat="@drawable/ic_back" />
 
         <LinearLayout
@@ -36,7 +36,7 @@
                 android:id="@+id/titlepage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:text="Feedback Form"
                 android:textColor="#000"
@@ -56,6 +56,8 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Subject Of Mail"
+        android:textColorHint="@color/quantum_white_100"
+        android:textColor="@color/quantum_white_100"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,6 +76,8 @@
         android:ems="10"
         android:hint="Write your message"
         android:inputType="textPersonName"
+        android:textColorHint="@color/quantum_white_100"
+        android:textColor="@color/quantum_white_100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,6 +109,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="taxifinder@gmail.com"
+        android:textColor="@color/quantum_white_100"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
