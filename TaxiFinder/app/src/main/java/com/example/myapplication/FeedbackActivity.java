@@ -20,7 +20,7 @@ public class FeedbackActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feedback);
 
       // final EditText to = (EditText) findViewById(R.id.sendTo);
-        final TextView to = (TextView) findViewById(R.id.tv_default);
+        final TextView to = (TextView) findViewById(R.id.tv_defaultb);
        final EditText subject = (EditText) findViewById(R.id.subject);
        final EditText message = (EditText) findViewById(R.id.EmailText);
 

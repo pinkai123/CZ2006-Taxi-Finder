@@ -44,8 +44,8 @@ public class EditTaskDesk extends AppCompatActivity {
         addressfavourites.setText(getIntent().getStringExtra("address"));
         final String keykeyfavourites = getIntent().getStringExtra("keyfavourites");
 
-
-        reference = FirebaseDatabase.getInstance().getReference().child("MapApplication").child("Addr" + keykeyfavourites);
+        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        reference = FirebaseDatabase.getInstance().getReference().child("MapApplication").child("users").child(userid).child("Favourites").child("Addr" + keykeyfavourites);
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override

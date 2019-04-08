@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -102,7 +103,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     String userid;
     boolean DisplayIndicator;
     double Radius;
-    PlaceAutocompleteFragment placeAutoComplete;
+    protected ProgressDialog mProgressDialog;;
 
     private void moveCameraToKml(KmlLayer layer) {
         KmlContainer container = layer.getContainers().iterator().next();
@@ -362,9 +363,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         });
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        String result;
         Download();
+        String result;
 
         //for navigation menu
 
@@ -511,7 +511,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myCurrentlocation,17));
                 Log.i("Location",location.toString());
                 //Toast.makeText(MapsActivity.this,location.toString(),Toast.LENGTH_SHORT).show();
+
                 Download();
+
 
 
             }
@@ -549,6 +551,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myCurrentlocation,17));
             Download();
+
         }
 
 

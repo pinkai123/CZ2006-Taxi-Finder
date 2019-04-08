@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class SettingsActivity extends AppCompatActivity {
 //optional
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
+    protected ProgressDialog mProgressDialog;
     String userid;
     CheckBox checkbox;
     SeekBar radiusControl;
@@ -36,6 +38,47 @@ public class SettingsActivity extends AppCompatActivity {
     DatabaseReference myRef;
 
     private void setCheckbox(){
+        mProgressDialog = ProgressDialog.show(this, "Please wait","Long operation starts...", true);
+        new Thread() {
+            @Override
+            public void run() {
+                    DatabaseReference radiusRef = FirebaseDatabase.getInstance().getReference("DisplayTaxiStand/users/"+ userid + "/");
+                    radiusRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            String p =dataSnapshot.getValue(String.class);
+                            if(p != null) {
+                                Log.i("Display",p);
+                                checkbox.setChecked(Boolean.parseBoolean(p));
+                            }
+                            else checkbox.setChecked(Boolean.FALSE);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            //set code to show an error
+                            Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                try {
+
+                    // code runs in a thread
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mProgressDialog.dismiss();
+                        }
+                    });
+                } catch (final Exception ex) {
+                    Log.i("---","Exception in thread");
+                }
+            }
+        }.start();
+
+    }
+
+    {
         DatabaseReference radiusRef = FirebaseDatabase.getInstance().getReference("DisplayTaxiStand/users/"+ userid + "/");
         radiusRef.addValueEventListener(new ValueEventListener() {
             @Override
