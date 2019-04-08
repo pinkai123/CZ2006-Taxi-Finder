@@ -70,22 +70,22 @@
     <EditText
         android:id="@+id/endid"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="51dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Choose Destination"
+        android:inputType="textPersonName"
         android:textColor="@color/quantum_white_100"
         android:textColorHint="@color/quantum_white_100"
-        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startid"
-        app:layout_constraintVertical_bias="0.105" />
+        app:layout_constraintVertical_bias="0.085" />
 
     <Button
         android:id="@+id/calculateFare"
@@ -113,7 +113,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:textColor="@color/quantum_white_100"
-        android:textSize="8dp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.464"
@@ -149,10 +149,10 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/endid"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintHorizontal_bias="0.219"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startid"
-        app:layout_constraintVertical_bias="0.952" />
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </android.support.constraint.ConstraintLayout>
