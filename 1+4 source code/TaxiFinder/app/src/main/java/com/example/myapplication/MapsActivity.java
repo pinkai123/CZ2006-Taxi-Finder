@@ -179,6 +179,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         df = new SimpleDateFormat("yyyy-MM-dd'T'HH'%3A'mm'%3A'ss");
         //Log.i("TIme",df.format(calendar.getTime()));
         try {
+            Log.i("Download","1");
             task.execute("https://api.data.gov.sg/v1/transport/taxi-availability?date_time=" + df.format(calendar.getTime()));
             //Log.i("info",result);
         } catch (Exception e) {
@@ -273,6 +274,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
+            Log.i("Download","2");
 
             String message = "";
             try {
@@ -316,6 +318,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             } catch(IOException e){
                     e.printStackTrace();
             }
+            Log.i("Download","3");
+            Toast.makeText(MapsActivity.this, "Map Updated", Toast.LENGTH_LONG).show();
 
         }
     }
@@ -327,6 +331,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        System.exit(0);
     }
 
     @Override
@@ -363,8 +368,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         });
-        Download();
-        String result;
 
         //for navigation menu
 
