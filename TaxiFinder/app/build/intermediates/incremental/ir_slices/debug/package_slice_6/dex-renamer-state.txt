@@ -1,0 +1,4 @@
+#Mon Apr 08 11:58:42 SGT 2019
+base.0=C\:\\Users\\tigge\\Documents\\GitHub\\OnePlusFour\\TaxiFinder\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\6
+path.0=classes.dex
+renamed.0=classes.dex
