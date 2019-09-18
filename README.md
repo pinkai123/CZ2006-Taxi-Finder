@@ -1,5 +1,7 @@
-# CZ2006 Taxi Finder
+# CZ2006 Software Engineering
+## Taxi Finder
 
-Android Application
+### Introduction
 
-Display the live locations of taxi around you
+Taxi Finder is an android application that display the live location of taxi all around you. This application allows user to check for taxi during peak hours and make an informed choice of booking either grab or taxi.
+
